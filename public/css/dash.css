@@ -1,0 +1,113 @@
+/* Styling the overall layout */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Sidebar styling */
+.sidebar {
+    background-color: #333;
+    color: #fff;
+    width: 250px;
+    height: 100%;
+    position: fixed;
+}
+
+.logo {
+    font-size: 28px;
+    padding: 20px;
+}
+
+.navigation ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.navigation ul li {
+    padding: 10px;
+}
+
+.navigation ul li a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+}
+
+/* Main Content styling */
+.main-content {
+    margin-left: 250px;
+    padding: 20px;
+}
+
+.header {
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.user-profile img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.notifications {
+    display: flex;
+    align-items: center;
+}
+
+.badge {
+    background-color: #f00;
+    color: #fff;
+    border-radius: 50%;
+    padding: 4px 8px;
+    margin-left: 5px;
+}
+
+/* Dashboard Cards styling */
+.cards {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.card {
+    background-color: #fff;
+    width: 30%;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card h2 {
+    color: #333;
+}
+
+.card p {
+    font-size: 24px;
+    color: #007bff;
+}
+
+/* Additional styling as needed */
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        position: static;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+}

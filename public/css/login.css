@@ -1,0 +1,85 @@
+/* Add a background color to the entire page */
+body {
+    background-color: #f3f4f6    important;
+    font-family: Arial, sans-serif   important;
+}
+
+/* Style the container */
+.container {
+    display: flex   important;
+    justify-content: center   important;
+    align-items: center   important;
+    height: 100vh   important;
+}
+
+/* Style the card */
+.card {
+    background-color: #ffffff   important;
+    border-radius: 10px important;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1) important;
+}
+
+/* Style the card body */
+.card-body {
+    padding: 20px   important;
+    text-align: center   important;
+}
+
+/* Style the heading */
+h4 {
+    color: #333333   important;
+}
+
+/* Style the input fields */
+input.form-control {
+    width: 100%   important;
+    padding: 10px   important;
+    margin-top: 10px   important;
+    border: 1px solid #d1d1d1   important;
+    border-radius: 5px   important;
+}
+
+/* Style the sign-in button */
+button.btn-primary {
+    background-color: #3498db important;
+    color: #ffffff   important;
+    padding: 10px   important;
+    border: none   important;
+    border-radius: 5px   important;
+    cursor: pointer   important;
+    transition: background-color 0.3s   important;
+}
+
+button.btn-primary:hover {
+    background-color: #267bbd   important;
+}
+
+/* Style the horizontal line */
+hr {
+    border: none   important;
+    border-top: 1px solid #d1d1d1   important;
+    margin: 20px 0   important;
+}
+
+/* Style the links at the bottom */
+a {
+    color: #3498db   important;
+    text-decoration: none   important;
+    transition: color 0.3s   important;
+}
+
+a:hover {
+    color: #267bbd   important;
+}
+
+/* Style the "Sign Up" and "Forget Password" links */
+.float-end span {
+    display: flex   important;
+    justify-content: center   important;
+    align-items: center   important;
+}
+
+/* Add some spacing between links */
+.float-end a {
+    margin-left: 10px   important;
+}
