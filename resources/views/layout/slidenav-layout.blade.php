@@ -12,30 +12,37 @@
 </head>
 <body class="bg-stone-100 h-screen">
     <header>
-        <h1> <a href="/Dashboard">Syed Traders</a> </h1>
+                <h1> Syed Traders </h1>
+        <h3>Distributor: Unilever Bangladesh Limited</h3>
+     
+        
+
         <div id="loader" class="LoadingOverlay d-none">
             <div class="Line-progress">
                 <div class="indeterminate loader-spinner"></div>
             </div>
         </div>
-        <nav>
-            <ul>
-                <li><a href="/Home">Home</a></li>
-                <li><a href="/Products">Products</a></li>
-                <li><a href="/Sales">Sales</a></li>
-                <li><a href="/Reports">Reports</a></li>
-                <li><a href="/Settings">Settings</a></li>
-                <li><a href="{{url('/Logout')}}">Logout</a></li>
-            </ul>
-        </nav>
+      
     </header>
+    <nav>
+        <ul>
+            <li><a href="{{url('/Dashboard')}}">Dashboard</a></li>
+            <li><a href="{{url('/Category')}}">Category</a></li>
+            <li><a href="{{url('/Logout')}}">Logout</a></li>
+        </ul>
+      </nav>
+
+    
     <main>
+       
         <section class="content">
             <div class="" id="content-div">
                 @yield('content')
                </div>
         </section>
     </main>
+
+    
     <footer>
         <p>&copy; 2023 Your Company</p>
     </footer>

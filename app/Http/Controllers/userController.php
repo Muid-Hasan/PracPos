@@ -37,14 +37,16 @@ class userController extends Controller
 
     public function UserLogin(Request $request)
     {
-        $count = user::where('email', '=', $request->input('email'))->where('password', '=', $request->input('password'))->count();
-        if ($count === 1) {
-            $token = JWTTOKEN::CreateTokenForLogin($request->input('email'));
+        $count = user::where('email', '=', $request->input('email'))
+                                                   ->where('password', '=', $request->input('password'))
+                                                   ->select('id')->first();
+        if ($count !== null) {
+            $token = JWTTOKEN::CreateTokenForLogin($request->input('email'),$count->id);
             return response()->json([
                 'Status' => 'Success',
                 'Message' => 'Login Successfully',
                 
-            ],200)->cookie('LoginToken',$token,60*60*24*30);
+            ],200)->cookie('Token',$token,60*60*24*30);
         } else {
             return response()->json([
                 'Status' => 'Failed',
@@ -90,7 +92,7 @@ class userController extends Controller
                 'Status' => 'Success',
                 'Message' => 'OTP varified Successfully',
                 
-            ],200)->cookie('RePassToken',$token,60*60);;
+            ],200)->cookie('Token',$token,60*60);;
         } else {
             return response()->json([
                 'Status' => 'Failed',
@@ -109,7 +111,7 @@ class userController extends Controller
                 'Status' => 'Success',
                 'Message' => 'Password Updated successfully',
                 
-             ],200)->cookie('RePassToken','',-1);
+             ],200)->cookie('Token','',-1);
            } 
            catch (ErrorException $e) {
           
@@ -119,11 +121,61 @@ class userController extends Controller
             ],401);
             }
        }
+
+
+
     public function DashBoardSummery(Request $request)
     {
     }
+
+    function Userprofile(Request $request){
+     $email= $request->header('email');
+     try{
+        $user=user::where('email','=',$email)->first();
+        return response()->json([
+           'Status'=>'Success',
+           'Message'=>'Request Successfull',
+           'data'=>$user
+        ],200);
+     }
+     catch(Exception $e){
+          return response()->json([
+            'Status'=>'Failed',
+            'Message'=>'Reauest Unsuccessfull',
+            
+          ]);
+     }
+    
+    }
+
+    function UpdateUserProfile(Request $request){
+        try{
+            $email=$request->header('email');
+            $firstName=$request->input('firstName');
+            $lastName=$request->input('lastName');
+            $mobile=$request->input('mobile');
+            $password=$request->input('password');
+
+            user::where('email','=',$email)->update([
+                'firstName'=>$firstName,
+                'lastName'=>$lastName,
+                'mobile'=>$mobile,
+                'password'=>$password
+            ]);
+            return response()->json([
+                'Status'=>'Success',
+                'Message'=>'Request Successfull'
+            ]);
+        }
+        catch(Exception $e){
+            return response()->json([
+                'Status'=>'Failed',
+                'Message'=>'Request Unsuccessfull'
+            ]);
+        }
+    }
     public function Logout(){
-        return redirect('/Login')->cookie('LoginToken','',-1);
+        return redirect('/Login')->cookie('Token','',-1);
     }
 
 
@@ -145,28 +197,19 @@ class userController extends Controller
            return view('pages.auth.ResetPassword-Page');
         }
         function DashBoardPage(){
-           return view('pages.dashboard.Summery-Page');
+           return view('pages.dashboard.dashboard-Page');
         }
 
 
-        function Homepage(){
-            return view('pages.dashboard.Homepage');
-           }
-           function Productpage(){
-            return view('pages.dashboard.Productpage');
-           }
-           function Salespage(){
-            return view('pages.dashboard.Salespage');
-           }
-           function Reportpage(){
-            return view('pages.dashboard.Reportpage');
-           }
-           function Settingpage(){
-            return view('pages.dashboard.Settingpage');
-           }
-           function Logoutpage(){
-            return view('pages.dashboard.Logoutpage');
-           }
+       
+        function UpdateUserProfilePage(){
+            return view('pages.dashboard.UpdateUserProfile-Page');
+        }
+        function UserprofilePage(){
+            return view('pages.dashboard.UserProfile-Page');
+        }
+          
+           
            
            
 }

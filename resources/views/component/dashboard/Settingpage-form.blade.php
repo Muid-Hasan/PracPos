@@ -1,1 +1,0 @@
-<h3>This is Setting Page</h3>

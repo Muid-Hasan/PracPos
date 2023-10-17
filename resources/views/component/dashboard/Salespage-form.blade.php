@@ -1,1 +1,0 @@
-<h3>This is Sales Page</h3>

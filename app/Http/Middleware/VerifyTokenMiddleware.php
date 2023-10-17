@@ -20,17 +20,14 @@ class VerifyTokenMiddleware
 
     public function handle(Request $request, Closure $next): Response
     {
-        $token=$request->cookie('RePassToken');
+        $token=$request->cookie('Token');
         $result=JWTTOKEN::Decoder($token);
         if($result=="unauthorized"){
-             return response()->json([
-                 'Status' => 'Failed',
-                 'Message' => 'Something Wrong! Try again..'
-                
-               ]);
+             return redirect('/Login');
            }
         else{
-            $request->headers->set('email',$result);
+            $request->headers->set('email',$result->email);
+            $request->headers->set('id',$result->id);
             return $next($request);
         }
         

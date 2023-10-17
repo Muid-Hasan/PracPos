@@ -5,14 +5,22 @@ body {
 }
 
 header {
-    background-color: #333;
+    background-color: #e7d2d2;
     color: #fff;
     text-align: center;
     padding: 10px;
 }
+/* Reset styles for the first <nav> element */
+nav ul li a {
+    text-align: center;
+    background-color: #ffffff;
+    color: #080000;
+}
 
 nav ul {
     list-style: none;
+    display: flex;
+    justify-content: flex-end; /* Align items to the right */
 }
 
 nav ul li {
@@ -41,3 +49,37 @@ footer {
     color: #fff;
     padding: 10px;
 }
+.btn-link {
+    display: inline-block;
+    padding: 10px 20px; /* Adjust padding as needed */
+    background-color: #007bff; /* Button background color */
+    color: #fff; /* Button text color */
+    text-decoration: none;
+    text-align: center;
+    border: 1px solid #007bff; /* Button border color */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s; /* Add a transition effect */
+}
+
+.btn-link:hover {
+    background-color: #0056b3; /* Change background color on hover */
+}
+.btn-link-dash {
+    display: inline-block;
+    padding: 10px 20px; /* Adjust padding as needed */
+    background-color: #ec0b43; /* Button background color */
+    color: #fff; /* Button text color */
+    text-decoration: none;
+    text-align: center;
+    border: 1px solid #ee0505; /* Button border color */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s; /* Add a transition effect */
+}
+
+.btn-link-dash {
+    background-color: #f00f0f; /* Change background color on hover */
+}
+
+
